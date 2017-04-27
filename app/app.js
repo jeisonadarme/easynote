@@ -11,7 +11,7 @@
         bindings: { $router: '<' },
         $routeConfig: [
            { path: "/", name: "Index", component: "index", useAsDefault: true },
-            { path: "/:id", name: "Notes", component: "notes"}
+            { path: "/notes/:id", name: "Notes", component: "notes"}
         ]
     });
 })(window.angular);
