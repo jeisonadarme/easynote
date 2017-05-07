@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="assets/css/dialog-polyfill.css">
+
+
+<a ng-click="$ctrl.showModal()" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Add New Note</a>
+
+<dialog class="mdl-dialog">
+    <form ng-submit="$ctrl.submit()" name="formCreate" class="form-contact">
+
+        <div class="mdl-dialog__content">
+            <div ng-show="$ctrl.showForm">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" pattern="[0-9A-Z,a-z ]*" type="text" id="title" name="title" ng-model="$ctrl.title">
+                    <label class="mdl-textfield__label" for="title">Title...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" rows="3" pattern="[0-9A-Z,a-z ]*" type="text" id="text" name="text" ng-model="$ctrl.text"></textarea>
+                    <label class="mdl-textfield__label" for="text">Text...</label>
+                </div>
+                <Label class="input-custom-file mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
+                    ADD IMAGE
+                    <input type="file" id="upload" name="upload">
+                </label>
+            </div>
+            <div ng-show="$ctrl.success">
+                <p style="text-align: center">
+                    note created successfully
+                </p>
+                <div style="text-align: center">
+                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white close" ng-click="$ctrl.closeModal()">Ok</button>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions" ng-show="$ctrl.showBottons">
+            <button ng-click="$ctrl.submit()" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Save</button>
+            <button type="button" class="mdl-button close" ng-click="$ctrl.closeModal()">Cancel</button>
+        </div>
+        <div ng-show="$ctrl.showLoading">
+            <div class="mdl-dialog__content">
+                <p style="text-align: center">Adding note please wait...</p>
+            </div>
+
+            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+        </div>
+    </form>
+</dialog>

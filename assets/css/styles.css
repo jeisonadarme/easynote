@@ -182,8 +182,7 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 .demo-updates .mdl-card__title {
   min-height: 200px;
-  /*background-image: url('images/dog.png');*/
-  background-position: 90% 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .demo-cards .mdl-card__actions a {
@@ -315,4 +314,28 @@ _:-ms-input-placeholder, :root .demo-graph {
  
 }
 
+.mdl-dialog__title{
+  color: #757575 !important;
+}
 
+.mdl-dialog{
+  width: 314px !important;
+}
+
+label.input-custom-file input[type=file] {
+  display: none;
+}
+
+.mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.mdl-card__actions > .mdl-button--icon {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+.ng-scope{
+  width: 100%;
+}

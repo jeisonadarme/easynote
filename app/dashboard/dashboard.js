@@ -1,6 +1,18 @@
 (function (angular) {
     'use strict';
 
+    function layout($scope, $location) {
+
+       var $ctrl = this;
+
+        $ctrl.logOut = function () {
+            var user = firebase.auth().currentUser;
+
+            localStorage.setItem('user', null);
+            $location.path('/');
+        }
+    }
+
     angular.module('dashboard', ['index', 'userinfo', 'search'])
         .component('dashboard', {
             templateUrl: 'app/dashboard/common/layout.html',
@@ -9,14 +21,13 @@
             ],
             $canActivate: function ($location) {
                 var user = localStorage.getItem('user');
-              
-                console.log(user);
-                if (user === null) {
+                if (user == "null" || user == null) {
                     $location.path('/');
                 }
                 else {
                     return true;
                 }
-            }
+            },
+            controller: layout
         })
 })(window.angular);
