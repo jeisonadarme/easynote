@@ -1,14 +1,16 @@
 <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-cell--12-col-desktop">
 
-    <div ng-repeat="note in $ctrl.notes" class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
-        <div class="mdl-card__title mdl-card--expand mdl-color--teal-300" style="background-image: url({{note.urlFile}});">
-            <h2 class="mdl-card__title-text">{{note.title}}</h2>
-        </div>
+    <div ng-repeat="note in $ctrl.notes | filter: search" class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+        <a href="#" ng-click="$ctrl.showImage(note.val().urlFile, note.val().title)">
+           <div class="mdl-card__title mdl-card--expand mdl-color--teal-300" style="background-image: url({{note.val().urlFile}});">
+                <h2 class="mdl-card__title-text">{{note.val().title}}</h2>
+            </div>
+        </a>
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            {{note.text}}
+            {{note.val().text}}
         </div>
         <div class="mdl-card__actions mdl-card--border">
-            <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect">EDIT</a>
+            <a ng-click="$ctrl.view(note.val())" class="mdl-button mdl-js-button mdl-js-ripple-effect">VIEW MORE</a>
             <div class="mdl-layout-spacer"></div>
             <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">favorite</i></button>
             <button class="mdl-button mdl-button--icon mdl-button--colored"><i class="material-icons">share</i></button>
@@ -17,3 +19,63 @@
     <div class="demo-separator mdl-cell--1-col"></div>
 </div>
 <newnote></newnote>
+
+
+
+<dialog class="mdl-dialog" id="viewnote">
+    <div class="one">
+        <img src="{{$ctrl.note.urlFile}}" class="img-view">
+    </div>
+    <form ng-submit="$ctrl.submit()" name="formCreate" class="form-contact">
+        <div class="mdl-dialog__content">
+            <div ng-show="$ctrl.showForm">
+
+
+                <section class="container">
+
+                    <div class="two">
+                        <div ng-class="'is-dirty'" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" pattern="[0-9A-Z,a-z ]*" type="text" id="title" name="title" ng-model="$ctrl.note.title">
+                            <label class="mdl-textfield__label" for="title">Title...</label>
+                        </div>
+                        <div ng-class="'is-dirty'" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <textarea class="mdl-textfield__input" rows="3" pattern="[0-9A-Z,a-z ]*" type="text" id="text" name="text" ng-model="$ctrl.note.text"></textarea>
+                            <label class="mdl-textfield__label" for="text">Text...</label>
+                        </div>
+                        <Label class="input-custom-file mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
+                    CHANGE IMAGE
+                    <input type="file" id="upload" name="upload">
+                </label>
+                    </div>
+                </section>
+
+
+            </div>
+            <div ng-show="$ctrl.success">
+                <p style="text-align: center">
+                    note created successfully
+                </p>
+                <div style="text-align: center">
+                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white close"
+                        ng-click="$ctrl.closeModal()">Ok</button>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-dialog__actions" ng-show="$ctrl.showBottons">
+            <button ng-click="$ctrl.submit()" type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">Update</button>
+            <button type="button" class="mdl-button close" ng-click="$ctrl.closeModal()">Cancel</button>
+        </div>
+        <div ng-show="$ctrl.showLoading">
+            <div class="mdl-dialog__content">
+                <p style="text-align: center">Adding note please wait...</p>
+            </div>
+
+            <div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+        </div>
+    </form>
+</dialog>
+
+
+
+
+

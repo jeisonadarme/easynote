@@ -25,9 +25,9 @@
 
     <link rel="shortcut icon" href="images/favicon.png">
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
     <style>
         #view-source {
             position: fixed;
@@ -38,29 +38,41 @@
             margin-bottom: 40px;
             z-index: 900;
         }
-        
     </style>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body ng-app="app">
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="closeModal" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+    </div>
+
     <app></app>
 
-   
+
     <script src="libs/angular.js"></script>
     <script src="libs/angular_1_router.js"></script>
 
     <script src="app/app.js"></script>
-    <script src="app/dashboard/dashboard.js"></script>    
+    <script src="app/dashboard/dashboard.js"></script>
     <script src="app/components/login/loginController.js"></script>
     <script src="app/dashboard/components/newNote/newNoteController.js"></script>
     <script src="app/dashboard/components/index/indexController.js"></script>
     <script src="app/dashboard/common/components/userinfo/userinfoController.js"></script>
     <script src="app/dashboard/common/components/search/searchController.js"></script>
-    
 
-<script src="assets/js/dialog-polyfill.js"></script>    
+
+    <script src="assets/js/dialog-polyfill.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script>
         // Initialize Firebase easy-note-2f43f.appspot.com
@@ -73,8 +85,18 @@
             messagingSenderId: "300134774248"
         };
         firebase.initializeApp(config);
+
+
+            var modal = document.getElementById('myModal');
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("closeModal")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
     </script>
-  <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </body>
 

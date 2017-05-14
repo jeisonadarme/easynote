@@ -23,14 +23,14 @@
         componentHandler.upgradeAllRegistered();
 
         $ctrl.showModal = function () {
-            var dialog = document.querySelector('dialog');
+            var dialog = document.querySelector('#newnote');
             dialogPolyfill.registerDialog(dialog);
             // Now dialog acts like a native <dialog>.
             dialog.showModal();
         }
 
         $ctrl.closeModal = function(){
-            var dialog = document.querySelector('dialog');
+            var dialog = document.querySelector('#newnote');
             dialogPolyfill.registerDialog(dialog);
             dialog.close();
             $ctrl.showBottons = true;
