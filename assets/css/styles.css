@@ -439,3 +439,7 @@ label.input-custom-file input[type=file] {
 a {
   text-decoration: none;
 }
+
+.mdl-card__supporting-text{
+  word-break: break-all;
+}

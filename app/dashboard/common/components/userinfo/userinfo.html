@@ -1,20 +1,30 @@
-      <header class="demo-drawer-header">
-        <img src="pencil-2160915_640.png" class="img-header-back">
+<header class="demo-drawer-header">
+  <img src="pencil-2160915_640.png" class="img-header-back">
 
-        <div class="sidebar-profile">
-          <div class="sidebar-profile-image">
-            <div class="avatar-block">
-              <img src="{{$ctrl.userInfo.photoURL}}" class="demo-avatard img-circle img-responsive">
-            </div>
-          </div>
-          <div class="sidebar-profile-details">
-            <span>
+  <div class="sidebar-profile">
+    <div class="sidebar-profile-image">
+      <div class="avatar-block">
+        <img src="{{$ctrl.userInfo.photoURL}}" class="demo-avatard img-circle img-responsive">
+      </div>
+    </div>
+    <div class="sidebar-profile-details">
+      <span>
                Jeison Adarme
                <br>
                <small>
                  Web developer
                </small>
-             </span>
-          </div>
-        </div>
-      </header>
+               <br>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+                  <i class="material-icons">mode_edit</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                  <input class="mdl-textfield__input" type="text" id="sample6">
+                  <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                </div>
+              </div>
+      </span>
+    </div>
+  </div>
+</header>

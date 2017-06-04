@@ -13,13 +13,14 @@
                     <label class="mdl-textfield__label" for="title">Title...</label>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <textarea class="mdl-textfield__input" rows="3" pattern="[0-9A-Z,a-z ]*" type="text" id="text" name="text" ng-model="$ctrl.text"></textarea>
+                    <textarea class="mdl-textfield__input" rows="3"  type="text" id="text" name="text" ng-model="$ctrl.text"></textarea>
                     <label class="mdl-textfield__label" for="text">Text...</label>
                 </div>
                 <Label class="input-custom-file mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-color-text--white">
-                    ADD IMAGE
+                    ADD FILE
                     <input type="file" id="upload" name="upload">
                 </label>
+                <div id="fileName"></div>
             </div>
             <div ng-show="$ctrl.success">
                 <p style="text-align: center">
@@ -43,3 +44,7 @@
         </div>
     </form>
 </dialog>
+
+<script>
+
+</script>

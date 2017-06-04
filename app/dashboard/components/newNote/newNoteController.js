@@ -53,6 +53,8 @@
                 date: new Date()
             }
 
+            console.log( "the new note",newNote, $ctrl.text);
+
             var updates = {};
             updates['/notes/' + note] = newNote;
             firebase.database().ref().update(updates);
